@@ -13,8 +13,8 @@ function App(){
  console.warn("ApiData",data)
   return(
     <div className="App">
-      <h1>Get API CAll</h1>
-      <table border="1" >
+      <h1>GET API CALL</h1>
+      <table border="5" >
         <tr>
           <td>id</td>
           <td>name</td>
