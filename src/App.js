@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
-  return (
+import React,{useEffect,useState} from 'react';
+function App(){
+  const[data,setData]=useState([])
+  useEffect(()=>{
+    fetch("https://reqres.in/api/unknown").then((result)=>{
+      result.json().then((resp)=>{
+        //console.warn("result",resp)
+        setData(resp.data)
+      })
+    })
+  },[])
+ console.warn("ApiData",data)
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Get API CAll</h1>
+      <table border="1" >
+        <tr>
+          <td>id</td>
+          <td>name</td>
+          <td>year</td>
+          <td>Color</td>
+          <td>pantone_value</td>
+        </tr>
+       {
+         data.map((item)=>
+         <tr>
+         <td>{item.id}</td>
+         <td>{item.name}</td>
+         <td>{item.year}</td>
+         <td>{item.color}</td>
+         <td>{item.pantone_value}</td>
+       </tr>
+         )
+       }
+       
+      </table>
     </div>
   );
 }
-
 export default App;
