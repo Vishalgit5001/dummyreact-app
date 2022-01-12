@@ -35,6 +35,7 @@ function App(){
     <h1> GET API CALL </h1>
    <input type='text' placeholder='search' value={serchText} onClick={onSearchTextChange}></input>
     <br/>
+    <br/>
     <table border="1" >
        {
          data.map((item)=>
