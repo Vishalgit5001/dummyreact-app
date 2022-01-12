@@ -1,27 +1,41 @@
 import './App.css';
 import React,{useEffect,useState} from 'react';
+//import axios from 'axios';
+
 function App(){
-  const[data,setData]=useState([])
+  const[data,setData]=useState([]);
+  const[serchText,setSearchText]=useState('');
+
   useEffect(()=>{
-    fetch("https://reqres.in/api/unknown").then((result)=>{
-      result.json().then((resp)=>{
-        //console.warn("result",resp)
-        setData(resp.data)
-      })
-    })
+     
   },[])
+
+  function onSearchTextChange(data){
+  setSearchText(data.target.value)
+  fetch("https://reqres.in/api/unknown").then((result)=>{
+    result.json().then((resp)=>{
+      setData(resp.data)
+    })
+  })
+  }
+
+ /* this.handleSubmit = event => {
+    event.preventDefault();
+
+      axios.get('https://reqres.in/api/unknown', {
+          responseType: 'json'
+      }).then(resp => {
+          setData( resp.data );
+      });
+  } */
+
  console.warn("Api Data",data)
   return(
     <div className="App">
-      <h1> GET API CALL </h1>
-      <table border="5" >
-        <tr>
-          <td>ID</td>
-          <td>Name</td>
-          <td>Year</td>
-          <td>Color</td>
-          <td>Pantone_Value</td>
-        </tr>
+    <h1> GET API CALL </h1>
+   <input type='text' placeholder='search' value={serchText} onClick={onSearchTextChange}></input>
+    <br/>
+    <table border="1" >
        {
          data.map((item)=>
          <tr>
