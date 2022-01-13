@@ -12,7 +12,7 @@ function App(){
 
   function onSearchTextChange(data){
   setSearchText(data.target.value)
-  fetch("	http://dummy.restapiexample.com/api/v1/employees").then((result)=>{
+  fetch("	https://reqres.in/api/unknown'").then((result)=>{
     result.json().then((resp)=>{
       setData(resp.data)
     })
@@ -41,10 +41,10 @@ function App(){
          data.map((item)=>
          <tr>
          <td>{item.id}</td>
-         <td>{item.employee_name}</td>
-         <td>{item.employee_salary}</td>
-         <td>{item.employee_age}</td>
-         <td>{item.profile_image}</td>
+         <td>{item.name}</td>
+         <td>{item.year}</td>
+         <td>{item.color}</td>
+         <td>{item.pantone_value}</td>
        </tr>
          )
        }
