@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+.input{
+  text-size-adjust:60%;
+
+}
 
 .App-logo {
   height: 40vmin;
