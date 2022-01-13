@@ -32,7 +32,7 @@ function App(){
  console.warn("Api Data",data)
   return(
     <div className="App">
-    <h1> GET API CALL FETCHING</h1>
+    <h1> GET API CALL </h1>
    <input type='text' placeholder='search' value={serchText} onClick={onSearchTextChange}></input>
     <br/>
     <br/>
