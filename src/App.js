@@ -12,7 +12,7 @@ function App(){
 
   function onSearchTextChange(data){
   setSearchText(data.target.value)
-  fetch("https://reqres.in/api/unknown").then((result)=>{
+  fetch("	http://dummy.restapiexample.com/api/v1/employees").then((result)=>{
     result.json().then((resp)=>{
       setData(resp.data)
     })
@@ -32,19 +32,19 @@ function App(){
  console.warn("Api Data",data)
   return(
     <div className="App">
-    <h1> GET API CALL </h1>
+    <h1> GET API CALL FETCHING</h1>
    <input type='text' placeholder='search' value={serchText} onClick={onSearchTextChange}></input>
     <br/>
     <br/>
-    <table border="1" >
+    <table border="5" >
        {
          data.map((item)=>
          <tr>
          <td>{item.id}</td>
-         <td>{item.name}</td>
-         <td>{item.year}</td>
-         <td>{item.color}</td>
-         <td>{item.pantone_value}</td>
+         <td>{item.employee_name}</td>
+         <td>{item.employee_salary}</td>
+         <td>{item.employee_age}</td>
+         <td>{item.profile_image}</td>
        </tr>
          )
        }

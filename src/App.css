@@ -40,5 +40,8 @@
 table
 {
   margin: auto;
+  width: fit-content;
+  line-height: 90%;
   padding-left: 0%;
+  color: rgba(212, 92, 22, 0.877);
 }
