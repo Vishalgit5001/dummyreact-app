@@ -4,40 +4,31 @@ import React,{useEffect,useState} from 'react';
 
 function App(){
   const[data,setData]=useState([]);
-  const[serchText,setSearchText]=useState('');
+  const[searchText,setSearchText]=useState('');
+  const[error,setError]=useState([]);
   //const newdata=onSearchTextChange;
   useEffect(()=>{
      },[])
 
-     function onSearchTextChange(data){
-    //if(onSearchTextChange=1){
-       setSearchText(data.target.value)
+      function onSearchTextChange(data){
+      setSearchText(data.target.value)
+      if(searchText==1){
+      console.log("HelloError",onSearchTextChange) 
       fetch("https://reqres.in/api/users?page=2").then((result)=>{
-        result.json().then((resp)=>{
-         setData(resp.data)
+     
+      result.json().then((resp)=>{
+      setData(resp.data)
         })
       })
-// } else{<>"assignment call"</>}
-   }
-  
-
-   
-
- /* this.handleSubmit = event => {
-    event.preventDefault();
-
-      axios.get('https://reqres.in/api/unknown', {
-          responseType: 'json'
-      }).then(resp => {
-          setData( resp.data );
-      });
-  } */
+ }else{<>"Please press 1"</>}
+}
 
  console.warn("Api Data",data)
   return(
     <div className="App">
     <h1> GET DUMMY API FETCHING </h1>
-   <input type='text' placeholder='search' value={serchText} onChange={onSearchTextChange}></input><br/><br/>
+   <input type='text' placeholder='search' value={searchText} onChange={onSearchTextChange}></input><br/><br/>
+   
     <table border="5">
         {
          data.map((item)=>
