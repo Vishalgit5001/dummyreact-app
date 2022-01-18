@@ -12,9 +12,9 @@ function App(){
 
       function onSearchTextChange(data){
       setSearchText(data.target.value)
-      if(searchText==1){
+      if(searchText=='1'){
       console.log("HelloError",onSearchTextChange) 
-      fetch("https://reqres.in/api/users?page=2").then((result)=>{
+      fetch("https://gorest.co.in/public/v1/posts").then((result)=>{
      
       result.json().then((resp)=>{
       setData(resp.data)
@@ -34,10 +34,10 @@ function App(){
          data.map((item)=>
          <tr>
          <td>{item.id}</td>
-         <td>{item.email}</td>
-         <td>{item.first_name}</td>
-         <td>{item.last_name}</td>
-         <td>{item.avatar}</td>
+         <td>{item.user_id}</td>
+         <td>{item.title}</td>
+         <td>{item.body}</td>
+      
        </tr>
          )
        }
